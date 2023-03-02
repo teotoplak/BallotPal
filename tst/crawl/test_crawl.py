@@ -17,6 +17,7 @@ def test_education_fact_sheet():
     chunks = crawl_url(url)
     expected_chunks = [
         "*Üldhariduses keskmine õpilaste arv õpetaja kohta: 9,8 (HTM), regionaalselt väga suur kõikumine – mõnes koolis 2 õpilast õpetaja kohta (maakoolid), teises 20+ õpilast õpetaja kohta (Tallinn).",
+        "Töötasu kasvatamine (Eesti 200: 3000eur; Isamaa: õpetaja keskmine Eesti keskmisest 125%; Sotsdem: miinimumpalk vähemalt 130% eelneva aasta Eesti keskmisest palgast; Keskerakond: 3000eur)"
     ]
     for chunk in expected_chunks:
         assert chunk in chunks

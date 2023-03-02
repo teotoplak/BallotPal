@@ -15,6 +15,7 @@ def crawl_url(url):
     lists = soup.find_all('ul')
     # find all tables on the page
     tables = soup.find_all('table')
+    ordered_lists = soup.find_all('ol')
 
     text_chunks = []
 
@@ -25,6 +26,12 @@ def crawl_url(url):
     # loop through the lists and print the list items
     for ul in lists:
         for li in ul.find_all('li'):
+            text_chunks.append(li.get_text())
+            print(li.get_text() + "\n")
+
+    # loop through the lists and print the list items
+    for ol in ordered_lists:
+        for li in ol.find_all('li'):
             text_chunks.append(li.get_text())
             print(li.get_text() + "\n")
 
