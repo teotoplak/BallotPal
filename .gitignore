@@ -1,4 +1,4 @@
-.env
+.openai_api_key
 .ipynb_checkpoints/
 .openai.env
 .DS_Store
