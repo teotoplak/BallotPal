@@ -2,6 +2,7 @@ import openai
 import pandas as pd
 import numpy as np
 import tiktoken
+from transformers import GPT2TokenizerFast
 
 openai.api_key_path = ".openai_api_key"
 
@@ -21,6 +22,12 @@ COMPLETIONS_API_PARAMS = {
     "max_tokens": 300,
     "model": COMPLETIONS_MODEL,
 }
+tokenizer = GPT2TokenizerFast.from_pretrained("gpt2")
+
+
+def count_tokens(text: str) -> int:
+    """count the number of tokens in a string"""
+    return len(tokenizer.encode(text))
 
 
 def call_prompt():
@@ -149,10 +156,12 @@ def answer_query_with_context(
 
 if __name__ == '__main__':
     # print(call_prompt())
-    document_embeddings = load_embeddings("./data/olympics_sections_document_embeddings.csv")
+    # document_embeddings = load_embeddings("./data/olympics_sections_document_embeddings.csv")
+    document_embeddings = load_embeddings("./data/embeddings/test-em.csv")
     # print(order_document_sections_by_query_similarity("Who won the men's high jump?", document_embeddings)[:5])
-    df = pd.read_csv('./data/olympics_sections_text.csv')
+    # df = pd.read_csv('./data/olympics_sections_text.csv')
+    df = pd.read_csv('./data/embeddings/test.csv')
     df = df.set_index(["title", "heading"])
-    res = answer_query_with_context("Who won the 2020 Summer Olympics men's high jump?", df, document_embeddings)
+    res = answer_query_with_context("What is Estonia's 200 family policy?", df, document_embeddings)
     print(res)
 
