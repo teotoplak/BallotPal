@@ -21,3 +21,5 @@ def test_education_fact_sheet():
     ]
     for chunk in expected_chunks:
         assert chunk in chunks
+
+# TODO: https://tarkvalija.eu/sisend-valimisprogrammide-analuusiks-perepoliitika/

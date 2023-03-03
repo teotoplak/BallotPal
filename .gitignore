@@ -3,3 +3,4 @@
 .openai.env
 .DS_Store
 data
+gcp_key.json

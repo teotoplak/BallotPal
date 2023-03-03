@@ -11,3 +11,4 @@ dependencies:
       - pandas==1.5.3
       - tiktoken==0.2.0
       - beautifulsoup4==4.11.2
+      - google-cloud-translate==3.11.0
